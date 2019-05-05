@@ -1,11 +1,11 @@
 {
   "name": "iconoteka-lib-test",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "prepare": "node ./utils/getFiles.js"
+    "prepare": "node ./scripts/buildIconotekaJson.js"
   },
   "repository": {
     "type": "git",
