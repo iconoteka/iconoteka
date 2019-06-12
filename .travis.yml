@@ -6,6 +6,8 @@ script:
   - npm run test
 deploy:
   provider: script
-  script: node scripts/triggerTravisBuild.js
+  script: 
+    - npm install
+    - node scripts/triggerTravisBuild.js
   on:
     branch: master
