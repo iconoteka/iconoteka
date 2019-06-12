@@ -1,6 +1,7 @@
 const fse = require('fs-extra');
 
 module.exports = function getFiles(dir, callback = file => file) {
+  const baseDir = dir.split('/')[0];
   const dirName = dir.split('/').reverse()[0];
   const contents = fse.readdirSync(dir);
 
@@ -12,7 +13,7 @@ module.exports = function getFiles(dir, callback = file => file) {
       return getFiles(fullPath, callback);
     }
 
-    return callback(fileName, fullPath);
+    return callback(fileName, fullPath.split(`${baseDir}/`)[1]);
 
   });
 
