@@ -6,8 +6,9 @@ script:
   - npm run test
 deploy:
   provider: script
+  skip_cleanup: true
   script: 
-    - npm install
+    - git reset --hard
     - node scripts/triggerTravisBuild.js
   on:
     branch: master
