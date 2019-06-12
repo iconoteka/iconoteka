@@ -4,7 +4,7 @@ module.exports = {
         b: 'bold',
         m: 'medium',
         r: 'regular',
-        l: 'ligth',
+        l: 'light',
         a: 'all', // "All" thickness should be displayed in all categories
     },
     styles: {
