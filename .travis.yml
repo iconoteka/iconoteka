@@ -2,13 +2,12 @@ language: node_js
 node_js:
   - "10"
 script:
-  - npm install
+  - npm ci
   - npm run test
 deploy:
   provider: script
   skip_cleanup: true
   script: 
-    - git reset --hard
-    - node scripts/triggerTravisBuild.js
+    - node $TRAVIS_BUILD_DIR/scripts/triggerTravisBuild.js
   on:
     branch: master
