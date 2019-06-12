@@ -1,6 +1,6 @@
 {
   "name": "iconoteka-lib-test",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/kot-lex/iconoteka-lib-test#readme",
   "devDependencies": {
-    "jest": "^24.7.1"
+    "jest": "^24.7.1",
+    "travis-ci": "^2.2.0"
   },
   "dependencies": {
     "fs-extra": "^7.0.1"
