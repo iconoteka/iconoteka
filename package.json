@@ -1,6 +1,6 @@
 {
-  "name": "iconoteka-lib-test",
-  "version": "1.0.7",
+  "name": "iconoteka",
+  "version": "1.0.8",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kot-lex/iconoteka-lib-test.git"
+    "url": "git+https://github.com/iconoteka/iconoteka.git"
   },
   "keywords": [],
   "author": "",
   "license": "CC-BY-4.0",
   "bugs": {
-    "url": "https://github.com/kot-lex/iconoteka-lib-test/issues"
+    "url": "https://github.com/iconoteka/iconoteka/issues"
   },
-  "homepage": "https://github.com/kot-lex/iconoteka-lib-test#readme",
+  "homepage": "https://iconoteka.com/",
   "devDependencies": {
     "jest": "^24.7.1",
     "travis-ci": "^2.2.0"
