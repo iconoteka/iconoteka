@@ -5,7 +5,7 @@
   "main": "iconoteka.json",
   "scripts": {
     "test": "jest",
-    "prepare": "node ./scripts/buildIconotekaJson.js"
+    "postinstall": "node ./scripts/buildIconotekaJson.js"
   },
   "repository": {
     "type": "git",
