@@ -2,6 +2,12 @@
 
 Library versions use the `02.00.08` form.
 
+## MCP 0.2.1 — 13 Sep 2026
+
+- Package description, README and registry listing now say 1 300 icons.
+  0.2.0 was published before 02.00.15 and still advertised 1 298. No code
+  change — the server always reported the live count from the data.
+
 ## 02.00.15 — 10 Sep 2026
 
 - Two new icons, taking the library to **1 300**: `upload_folder` and
