@@ -7,6 +7,10 @@ Library versions use the `02.00.08` form.
 - Package description, README and registry listing now say 1 300 icons.
   0.2.0 was published before 02.00.15 and still advertised 1 298. No code
   change — the server always reported the live count from the data.
+- Setup instructions for every major client, not just Claude: Codex,
+  VS Code (GitHub Copilot), Cursor, Claude Desktop, Windsurf, Gemini CLI and
+  Zed, each in its own format. The old shared block was wrong for Zed, which
+  reads `context_servers`, and for VS Code, which reads `servers`.
 
 ## 02.00.15 — 10 Sep 2026
 

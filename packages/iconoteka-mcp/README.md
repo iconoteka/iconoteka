@@ -9,13 +9,56 @@ to remember.
 
 ## Setup
 
+Each client stores MCP servers in its own format, so use the entry for yours.
+
 **Claude Code**
 
 ```bash
-claude mcp add iconoteka -- npx -y iconoteka-mcp
+claude mcp add --scope user iconoteka -- npx -y iconoteka-mcp
 ```
 
-**Claude Desktop / Cursor / Zed** — add to the MCP config:
+**Codex**
+
+```bash
+codex mcp add iconoteka -- npx -y iconoteka-mcp
+```
+
+Or in `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.iconoteka]
+command = "npx"
+args = ["-y", "iconoteka-mcp"]
+```
+
+**VS Code (GitHub Copilot)**
+
+```bash
+code --add-mcp '{"name":"iconoteka","command":"npx","args":["-y","iconoteka-mcp"]}'
+```
+
+Or per workspace in `.vscode/mcp.json` — note the key is `servers`:
+
+```json
+{
+  "servers": {
+    "iconoteka": {
+      "command": "npx",
+      "args": ["-y", "iconoteka-mcp"]
+    }
+  }
+}
+```
+
+**Cursor, Claude Desktop, Windsurf and Gemini CLI** share one shape, each in
+its own file:
+
+| Client | File |
+|---|---|
+| Cursor | `~/.cursor/mcp.json`, or `.cursor/mcp.json` in a project |
+| Claude Desktop | `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS), `%APPDATA%\Claude\claude_desktop_config.json` (Windows) |
+| Windsurf | `~/.codeium/windsurf/mcp_config.json` |
+| Gemini CLI | `~/.gemini/settings.json`, or `.gemini/settings.json` in a project |
 
 ```json
 {
@@ -28,7 +71,21 @@ claude mcp add iconoteka -- npx -y iconoteka-mcp
 }
 ```
 
-No API key, no network calls at runtime — the icon data ships with the package.
+**Zed** — in `settings.json`, under `context_servers`:
+
+```json
+{
+  "context_servers": {
+    "iconoteka": {
+      "command": "npx",
+      "args": ["-y", "iconoteka-mcp"],
+      "env": {}
+    }
+  }
+}
+```
+
+It runs offline: the icon data ships inside the package.
 
 ## Tools
 
