@@ -94,29 +94,42 @@ the weights and styles each one has, plus its other keywords.
 
 ```
 search_icons({ query: "notification bell" })
-→ bell  [Interface] ★popular  score 900
-      variants: thin:fill+stroke … bold:fill+stroke
+→ bell  [Interface] ★popular  score 949
+      variants: 7 weights, fill varies by weight
       also matches: notification, notify, reminder, ring, sound
 ```
 
-Optional `category` and `limit`. Ranking mirrors the website, so results match
-what a person sees at iconoteka.com.
+Optional `category` and `limit`.
 
-**`get_icon`** — SVG markup for one icon.
+**`get_icon`** — SVG markup for one icon, or for several in a single call.
 
 ```
 get_icon({ name: "bell", weight: "medium", style: "fill" })
-→ <svg width="24" height="24" viewBox="0 0 24 24" …>
+→ bell — medium fill — Interface
+
+  <svg width="24" height="24" viewBox="0 0 24 24" …>
     <path d="M12 22.25C10.375…" fill="currentColor"/>
   </svg>
+```
+
+Pass an array to fetch up to 24 icons at once, so a whole toolbar takes one
+request:
+
+```
+get_icon({ name: ["bell", "trash", "pen"] })
+→ one block per icon, separated by ---
 ```
 
 `weight` is `thin` `ultralight` `light` `regular` `medium` `semibold` `bold`
 (default `regular`); `style` is `stroke` or `fill` (default `stroke`). The path
 uses `currentColor`, so it inherits the surrounding text colour.
 
+`name` takes an icon's own name or the word people reach for: `trash`, `edit`
+and `settings` each resolve to the right icon.
+
 Most icons have all 14 variants; some have 7 or 8. Ask for one that doesn't
-exist and the server tells you which are available.
+exist and the server says what to use instead — for example, `"download" has no
+fill; it is a stroke-only icon. Use style "stroke".`
 
 **`list_categories`** — all 23 categories with icon counts.
 

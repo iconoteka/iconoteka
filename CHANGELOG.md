@@ -11,6 +11,10 @@ Library versions use the `02.00.08` form.
   VS Code (GitHub Copilot), Cursor, Claude Desktop, Windsurf, Gemini CLI and
   Zed, each in its own format. The old shared block was wrong for Zed, which
   reads `context_servers`, and for VS Code, which reads `servers`.
+- The Tools section documents `get_icon` taking a list, and word lookups
+  like `edit` → `pen`; its example output now matches what the server
+  actually returns. Dropped the claim that results match iconoteka.com —
+  the site still runs older data.
 
 ## 02.00.15 — 10 Sep 2026
 
