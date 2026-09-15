@@ -2,6 +2,18 @@
 
 Library versions use the `02.00.08` form.
 
+## MCP 0.2.2 — 15 Sep 2026
+
+- **Existing installs now get current icons.** `npx` upgrades iconoteka-mcp
+  inside the folder it already has, but keeps a dependency while it still
+  satisfies the declared range. With `iconoteka: ^2.0.12`, anyone who had
+  installed earlier received the new server with 02.00.12 data: 1 298 icons,
+  `delete` answering `garbage`, and no `upload_folder` or `download_folder`.
+  The server now requires `^2.0.15`, which forces the data to move with it.
+- `npm run build` now keeps that requirement equal to the data version on
+  every release and warns that a new iconoteka-mcp must be published too, so
+  the gap cannot reopen.
+
 ## MCP 0.2.1 — 13 Sep 2026
 
 - Package description, README and registry listing now say 1 300 icons.

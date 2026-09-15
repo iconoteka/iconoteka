@@ -231,6 +231,9 @@ const pkg = require("../packages/iconoteka/package.json");
   const PKG_COPY = path.join(__dirname, "../packages/iconoteka/icons.json");
   if (fs.existsSync(path.dirname(PKG_COPY))) fs.writeFileSync(PKG_COPY, json);
 
+  // The MCP must require this data version, or npx upgrades leave users on old icons.
+  require("./sync-mcp-floor.js");
+
   console.log(`✅  Built icons.json — ${icons.length} unique icons across ${categories.length} categories`);
 }
 
