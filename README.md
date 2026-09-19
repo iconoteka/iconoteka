@@ -6,7 +6,7 @@ A universal, open-source library of precisely designed pictograms.
 
 | | |
 |---|---|
-| **1 300** icons | from rapid prototyping to real-world wayfinding systems |
+| **1300** icons | from rapid prototyping to real-world wayfinding systems |
 | **7** weights | Thin, Ultralight, Light, Regular, Medium, Semibold, Bold |
 | **2** styles | stroke and fill |
 | **14 970** shapes | complete coverage for almost any use case |

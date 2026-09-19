@@ -1,7 +1,7 @@
 # iconoteka-mcp
 
 MCP server for [Iconoteka](https://iconoteka.com) — let an AI assistant
-search 1 300 icons and hand back paste-ready SVG.
+search 1300 icons and hand back paste-ready SVG.
 
 Ask for "a notification bell, medium weight" and the assistant returns the real
 icon, rather than inventing a path or reaching for whatever library it happens
