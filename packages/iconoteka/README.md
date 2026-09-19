@@ -12,7 +12,7 @@ import icons from "iconoteka" with { type: "json" };  // ESM
 const icons = require("iconoteka");                   // CommonJS
 ```
 
-See the [main README](https://github.com/turbaba/iconoteka) for the data shape,
+See the [main README](https://github.com/iconoteka/iconoteka) for the data shape,
 the CDN URLs, and how to grab individual SVGs.
 
 ## Support

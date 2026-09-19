@@ -7,7 +7,7 @@
   "homepage": "https://iconoteka.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/turbaba/iconoteka.git",
+    "url": "git+https://github.com/iconoteka/iconoteka.git",
     "directory": "packages/iconoteka-svelte"
   },
   "keywords": [

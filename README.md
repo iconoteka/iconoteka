@@ -24,7 +24,7 @@ search, drag the icon onto the canvas.
 **One icon at a time** — every icon is a standalone SVG on the CDN:
 
 ```
-https://cdn.jsdelivr.net/gh/turbaba/iconoteka@02.00.15/Icons/Interface/bell-notification-notify-reminder-ring-sound-r-s.svg
+https://cdn.jsdelivr.net/gh/iconoteka/iconoteka@02.00.15/Icons/Interface/bell-notification-notify-reminder-ring-sound-r-s.svg
 ```
 
 The path is `Icons/{Category}/{name}-{weight}-{style}.svg`, where weight is one
@@ -81,7 +81,7 @@ const icons = require("iconoteka");                   // CommonJS
 Or fetch it from the CDN:
 
 ```
-https://cdn.jsdelivr.net/gh/turbaba/iconoteka@02.00.15/icons.json
+https://cdn.jsdelivr.net/gh/iconoteka/iconoteka@02.00.15/icons.json
 ```
 
 Pin the tag rather than `@main` — jsDelivr caches branch URLs for up to 7 days.

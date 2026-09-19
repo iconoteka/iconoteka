@@ -216,7 +216,7 @@ function manifest(pkgName, extra) {
     homepage: "https://iconoteka.com",
     repository: {
       type: "git",
-      url: "git+https://github.com/turbaba/iconoteka.git",
+      url: "git+https://github.com/iconoteka/iconoteka.git",
       directory: `packages/${pkgName}`
     },
     keywords: ["icons","iconoteka","svg", extra.label.toLowerCase(), "design-system"],
