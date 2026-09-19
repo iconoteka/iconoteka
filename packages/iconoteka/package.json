@@ -8,11 +8,11 @@
   "homepage": "https://iconoteka.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/turbaba/Iconoteka.git",
+    "url": "git+https://github.com/turbaba/iconoteka.git",
     "directory": "packages/iconoteka"
   },
   "bugs": {
-    "url": "https://github.com/turbaba/Iconoteka/issues"
+    "url": "https://github.com/turbaba/iconoteka/issues"
   },
   "keywords": [
     "icons",

@@ -6,7 +6,7 @@
   "version": "0.2.2",
   "websiteUrl": "https://iconoteka.com",
   "repository": {
-    "url": "https://github.com/turbaba/Iconoteka",
+    "url": "https://github.com/turbaba/iconoteka",
     "source": "github",
     "subfolder": "packages/iconoteka-mcp"
   },

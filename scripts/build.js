@@ -214,7 +214,7 @@ const pkg = require("../packages/iconoteka/package.json");
       count:     icons.length,
       categories: categories.length,
       updatedAt: new Date().toISOString(),
-      cdn:       `https://cdn.jsdelivr.net/gh/turbaba/Iconoteka@${version}/icons.json`,
+      cdn:       `https://cdn.jsdelivr.net/gh/turbaba/iconoteka@${version}/icons.json`,
       popular:   popularNames,
       aliasResolutions: resolutions,
     },
