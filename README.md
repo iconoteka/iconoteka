@@ -9,7 +9,7 @@ A universal, open-source library of precisely designed pictograms.
 | **1300** icons | from rapid prototyping to real-world wayfinding systems |
 | **7** weights | Thin, Ultralight, Light, Regular, Medium, Semibold, Bold |
 | **2** styles | stroke and fill |
-| **14 970** shapes | complete coverage for almost any use case |
+| **14970** shapes | complete coverage for almost any use case |
 | **23** categories | Arrows, Interface, Hardware, Nature, Transportation, … |
 
 ## Adding icons to your project
