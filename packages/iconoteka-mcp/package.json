@@ -36,5 +36,5 @@
     "url": "git+https://github.com/iconoteka/iconoteka.git",
     "directory": "packages/iconoteka-mcp"
   },
-  "mcpName": "io.github.iconoteka/iconoteka"
+  "mcpName": "io.github.turbaba/iconoteka"
 }

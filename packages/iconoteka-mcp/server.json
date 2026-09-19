@@ -1,6 +1,6 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.iconoteka/iconoteka",
+  "name": "io.github.turbaba/iconoteka",
   "title": "Iconoteka",
   "description": "Search 1300 open-source icons in 7 weights and 2 styles, and get paste-ready SVG.",
   "version": "0.2.2",
