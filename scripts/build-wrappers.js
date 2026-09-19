@@ -210,7 +210,7 @@ function manifest(pkgName, extra) {
   return {
     name: pkgName,
     version: WRAPPER_VERSION,
-    description: `Iconoteka icons as ${extra.label} components — 1300 icons, 7 weights, stroke and fill`,
+    description: `Iconoteka icons as ${extra.label} components — 1,300 icons, 7 weights, stroke and fill`,
     license: "MIT",
     author: "turbaba",
     homepage: "https://iconoteka.com",
@@ -232,7 +232,7 @@ function manifest(pkgName, extra) {
 function readme(pkgName, label, usage) {
   return `# ${pkgName}
 
-[Iconoteka](https://iconoteka.com) icons as ${label} components — 1300
+[Iconoteka](https://iconoteka.com) icons as ${label} components — 1,300
 icons, seven weights, stroke and fill.
 
 \`\`\`bash

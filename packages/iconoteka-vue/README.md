@@ -1,6 +1,6 @@
 # iconoteka-vue
 
-[Iconoteka](https://iconoteka.com) icons as Vue components — 1300
+[Iconoteka](https://iconoteka.com) icons as Vue components — 1,300
 icons, seven weights, stroke and fill.
 
 ```bash

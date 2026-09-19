@@ -1,6 +1,6 @@
 # iconoteka
 
-Icon data for [Iconoteka](https://iconoteka.com) — 1300 icons, 7 weights,
+Icon data for [Iconoteka](https://iconoteka.com) — 1,300 icons, 7 weights,
 2 styles, in a single JSON file.
 
 ```bash
