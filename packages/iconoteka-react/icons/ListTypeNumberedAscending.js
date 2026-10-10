@@ -1,0 +1,21 @@
+import { createElement, forwardRef } from "react";
+
+const p = {"thin":{"stroke":"M10 6.475L10 6L22 6L22 6.475ZM22 18L10 18L10 17.525L22 17.525ZM5.375 9.625L4.875 9.625L4.875 3.375L2.875 4.575L2.65 4.2L4.875 2.825L5.375 2.825ZM8.475 16.425L5.2 19.7L1.925 16.425L2.275 16.075L5.2 19L8.125 16.075Z"},"ultralight":{"stroke":"M10 5.992L22 5.992L22 6.925L10 6.925ZM10 18.008L10 17.075L22 17.075L22 18.008ZM4.725 9.85L4.725 3.975L2.925 5.075L2.525 4.375L4.725 3.05L5.6 3.05L5.6 9.85ZM8.475 16.2L5.225 19.45L1.975 16.2L2.625 15.525L5.225 18.2L7.825 15.525Z"},"light":{"stroke":"M10 18.017L10 16.625L22 16.625L22 18.017ZM10 5.983L22 5.983L22 7.375L10 7.375ZM4.55 10.075L4.55 4.6L2.95 5.55L2.425 4.575L4.6 3.275L5.85 3.275L5.85 10.075ZM8 16.475L5.25 19.225L2.5 16.475Z"},"regular":{"stroke":"M22 7.825L10 7.825L10 5.975L22 5.975ZM22 16.175L22 18.025L10 18.025L10 16.175ZM4.45 3.5L6.075 3.5L6.075 10.3L4.4 10.3L4.4 5.2L3 6.05L2.3 4.75ZM8.525 15.725L5.275 18.975L2.025 15.725Z"},"medium":{"stroke":"M10.333 8.133L10.333 5.733L22 5.733L22 8.133ZM22 18.267L10.333 18.267L10.333 15.867L22 15.867ZM6.475 3.5L6.475 10.3L4.375 10.3L4.375 5.575L3 6.35L2.2 4.775L4.45 3.5ZM9.025 15.4L5.45 18.975L1.85 15.4Z"},"semibold":{"stroke":"M10.667 8.442L10.667 5.492L22 5.492L22 8.442ZM22 18.508L10.667 18.508L10.667 15.558L22 15.558ZM6.9 3.5L6.9 10.3L4.325 10.3L4.325 5.925L3 6.625L2.1 4.825L4.475 3.5ZM9.525 15.05L5.6 18.975L1.7 15.05Z"},"bold":{"stroke":"M22 5.25L22 8.75L11 8.75L11 5.25ZM11 15.25L22 15.25L22 18.75L11 18.75ZM4.3 6.3L3 6.925L2 4.85L4.475 3.5L7.3 3.5L7.3 10.3L4.3 10.3ZM10.025 14.725L5.775 18.975L1.525 14.725Z"}};
+const f = null;
+
+const ListTypeNumberedAscending = forwardRef(function ListTypeNumberedAscending(
+  { weight = "regular", variant = "stroke", size = 24, ...rest }, ref
+) {
+  const w = p[weight] || p.regular;
+  const d = w[variant] || (variant === "fill" ? f : null) || w.stroke;
+  return createElement(
+    "svg",
+    { ref, width: size, height: size, viewBox: "0 0 24 24", fill: "none",
+      xmlns: "http://www.w3.org/2000/svg", ...rest },
+    createElement("path", { d, fill: "currentColor" })
+  );
+});
+
+ListTypeNumberedAscending.displayName = "ListTypeNumberedAscending";
+
+export default ListTypeNumberedAscending;

@@ -6,10 +6,10 @@ A universal, open-source library of precisely designed pictograms.
 
 | | |
 |---|---|
-| **1,300** icons | from rapid prototyping to real-world wayfinding systems |
+| **1,400** icons | from rapid prototyping to real-world wayfinding systems |
 | **7** weights | Thin, Ultralight, Light, Regular, Medium, Semibold, Bold |
 | **2** styles | stroke and fill |
-| **14,970** shapes | complete coverage for almost any use case |
+| **16,123** shapes | complete coverage for almost any use case |
 | **23** categories | Arrows, Interface, Hardware, Nature, Transportation, … |
 
 ## Adding icons to your project
@@ -91,7 +91,7 @@ The npm package contains `icons.json` only; the raw SVGs stay in the repo.
 {
   "meta": {
     "version": "02.00.09",
-    "count": 1300,
+    "count": 1400,
     "categories": 23,
     "popular": ["ai", "alert", "bank_card", "bell", "…"]
   },
@@ -106,6 +106,29 @@ The npm package contains `icons.json` only; the raw SVGs stay in the repo.
   ]
 }
 ```
+
+### version.json
+
+A small companion file sits beside `icons.json` at the repo root:
+
+```json
+{ "version": "02.01.00", "display": "v2.1", "count": 1400, "shapes": 16123,
+  "categories": 23, "keywords": 8430, "words": 5880, "new": 100,
+  "icons": "https://cdn.jsdelivr.net/gh/iconoteka/iconoteka@02.01.00/icons.json" }
+```
+
+Read it to find the current release, then load the heavy file from the `icons`
+URL it gives. That URL is pinned to a tag, so it is immutable and correct on
+every CDN edge at once, and can be cached forever.
+
+Fetch `version.json` itself from
+`raw.githubusercontent.com/iconoteka/iconoteka/main/version.json`, which has no
+CDN cache, rather than from jsDelivr: jsDelivr caches a branch's commit for up
+to 12 hours and purging the file does not re-resolve it, so `@main` can serve
+different builds from different edges.
+
+`keywords` is the slot count — every icon's `searchTerms` added up. `words` is
+the number of distinct ones.
 
 The first segment of `name` is the icon's identity; the rest are search-only
 aliases, so match on the identity rather than the full string. Weights are

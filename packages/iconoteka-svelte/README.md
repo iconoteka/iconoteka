@@ -1,6 +1,6 @@
 # iconoteka-svelte
 
-[Iconoteka](https://iconoteka.com) icons as Svelte components — 1,300
+[Iconoteka](https://iconoteka.com) icons as Svelte components — 1,400
 icons, seven weights, stroke and fill.
 
 ```bash

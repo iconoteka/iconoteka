@@ -1,0 +1,25 @@
+import { h } from "vue";
+
+const p = {"thin":{"stroke":"M2.5 12.225L2.5 11.75L21.5 11.75L21.5 12.225ZM6.9 6.6L12 1.5L17.1 6.6L16.75 6.95L12 2.175L7.25 6.95ZM17.1 17.4L12 22.5L6.9 17.4L7.25 17.05L12 21.825L16.75 17.05Z"},"ultralight":{"stroke":"M2.5 11.508L21.5 11.508L21.5 12.475L2.5 12.475ZM6.95 6.55L12 1.5L17.05 6.55L16.375 7.25L12 2.825L7.625 7.25ZM17.05 17.45L12 22.5L6.95 17.45L7.625 16.75L12 21.175L16.375 16.75Z"},"light":{"stroke":"M2.5 11.267L21.5 11.267L21.5 12.725L2.5 12.725ZM7 6.5L12 1.5L17 6.5L15.975 7.525L12 3.5L8.025 7.525ZM17 17.5L12 22.5L7 17.5L8.025 16.475L12 20.5L15.975 16.475Z"},"regular":{"stroke":"M2.5 12.975L2.5 11.025L21.5 11.025L21.5 12.975ZM7.05 6.45L12 1.5L16.95 6.45L15.6 7.825L12 4.15L8.4 7.825ZM16.95 17.55L12 22.5L7.05 17.55L8.4 16.175L12 19.85L15.6 16.175Z"},"medium":{"stroke":"M2.5 10.733L21.5 10.733L21.5 13.267L2.5 13.267ZM6.875 6.475L12 1.375L17.125 6.475L15.6 8L12 4.175L8.4 8ZM17.125 17.525L12 22.625L6.875 17.525L8.4 16L12 19.825L15.6 16Z"},"semibold":{"stroke":"M2.5 10.442L21.5 10.442L21.5 13.558L2.5 13.558ZM7.85 6.35L12 1.85L16.15 6.35ZM16.15 17.65L12 22.15L7.85 17.65Z"},"bold":{"stroke":"M2.5 13.85L2.5 10.15L21.5 10.15L21.5 13.85ZM7.525 7.025L12 1.5L16.475 7.025ZM16.475 16.975L12 22.5L7.525 16.975Z"}};
+const f = null;
+
+export default {
+  name: "FlipVertical",
+  props: {
+    weight:  { type: String, default: "regular" },
+    variant: { type: String, default: "stroke" },
+    size:    { type: [Number, String], default: 24 }
+  },
+  setup(props, { attrs }) {
+    return () => {
+      const w = p[props.weight] || p.regular;
+      const d = w[props.variant] || (props.variant === "fill" ? f : null) || w.stroke;
+      return h(
+        "svg",
+        { width: props.size, height: props.size, viewBox: "0 0 24 24",
+          fill: "none", xmlns: "http://www.w3.org/2000/svg", ...attrs },
+        [h("path", { d, fill: "currentColor" })]
+      );
+    };
+  }
+};

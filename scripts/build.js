@@ -208,6 +208,31 @@ const pkg = require("../packages/iconoteka/package.json");
     }
   }
 
+  // Which icons arrived in this version, so the website can mark them. Computed
+  // from the icons.json this build is about to replace, never typed anywhere: a
+  // tag in a frame name would rename 14 SVGs and change their CDN URLs, and
+  // would have to be taken back out next release.
+  //
+  // "new" means added in the version being built, not added in the last N days,
+  // so it needs no clock and the published data says the same thing forever.
+  // Rebuilding the same version keeps the list; bumping the version recomputes
+  // it against what the previous version held.
+  let newIds = [];
+  if (fs.existsSync(OUTPUT)) {
+    const prev = JSON.parse(fs.readFileSync(OUTPUT, "utf8"));
+    if (prev.meta && prev.meta.version === version) {
+      // Same version rebuilt — keep the list, minus anything since removed.
+      newIds = (prev.meta.new || []).filter(id => identitySet.has(id));
+    } else if (prev.icons) {
+      const before = new Set(prev.icons.map(i => i.name.split("-")[0]));
+      newIds = icons.map(i => i.name.split("-")[0]).filter(id => !before.has(id));
+    }
+  }
+  const newSet = new Set(newIds);
+  for (const icon of icons) {
+    if (newSet.has(icon.name.split("-")[0])) icon.tags = ["new"];
+  }
+
   const output = {
     meta: {
       version,
@@ -216,6 +241,8 @@ const pkg = require("../packages/iconoteka/package.json");
       updatedAt: new Date().toISOString(),
       cdn:       `https://cdn.jsdelivr.net/gh/iconoteka/iconoteka@${version}/icons.json`,
       popular:   popularNames,
+      new:       newIds,
+      tags:      { new: "New" },
       aliasResolutions: resolutions,
     },
     icons,
@@ -227,6 +254,40 @@ const pkg = require("../packages/iconoteka/package.json");
   // raw.githubusercontent URLs point at it, so it must not move.
   fs.writeFileSync(OUTPUT, json);
 
+  // version.json — the small, always-fresh pointer the website and the plugin
+  // read to find the current release.
+  //
+  // They cannot read icons.json from jsDelivr @main: jsDelivr caches the
+  // branch→commit mapping for up to 12h, purging the file does not re-resolve
+  // it, and different edges end up serving different builds. An immutable tag
+  // URL is correct on every edge at once, but something has to say which tag —
+  // that is this file. It is a few hundred bytes and is fetched from
+  // raw.githubusercontent.com, which has no CDN cache, so a consumer learns
+  // about a release immediately and then loads the heavy file from a URL that
+  // can be cached forever.
+  //
+  // It carries the numbers the site puts in copy, so nothing has to recount
+  // them: `keywords` is the SLOT count (every icon's searchTerms added up),
+  // which is the figure the site has always shown, with the distinct-word
+  // count beside it under its own name.
+  const shapes = icons.reduce((n, i) =>
+    n + Object.values(i.variants).reduce((m, v) => m + Object.keys(v).length, 0), 0);
+  const slots  = icons.reduce((n, i) => n + i.searchTerms.length, 0);
+  const words  = new Set(icons.flatMap(i => i.searchTerms)).size;
+  fs.writeFileSync(path.join(__dirname, "../version.json"), JSON.stringify({
+    version,
+    npm:        pkg.version,
+    display:    "v" + version.split(".").map(x => String(+x)).join(".").replace(/\.0$/, ""),
+    count:      icons.length,
+    shapes,
+    categories: categories.length,
+    keywords:   slots,
+    words,
+    new:        newIds.length,
+    updatedAt:  output.meta.updatedAt,
+    icons:      `https://cdn.jsdelivr.net/gh/iconoteka/iconoteka@${version}/icons.json`,
+  }, null, 2) + "\n");
+
   // The npm package can only ship files inside its own directory.
   const PKG_COPY = path.join(__dirname, "../packages/iconoteka/icons.json");
   if (fs.existsSync(path.dirname(PKG_COPY))) fs.writeFileSync(PKG_COPY, json);
@@ -234,7 +295,8 @@ const pkg = require("../packages/iconoteka/package.json");
   // The MCP must require this data version, or npx upgrades leave users on old icons.
   require("./sync-mcp-floor.js");
 
-  console.log(`✅  Built icons.json — ${icons.length} unique icons across ${categories.length} categories`);
+  console.log(`✅  Built icons.json — ${icons.length} unique icons across ${categories.length} categories` +
+    (newIds.length ? `, ${newIds.length} new in ${version}` : ""));
 }
 
 // ── Watch ─────────────────────────────────────────────────────────────────────

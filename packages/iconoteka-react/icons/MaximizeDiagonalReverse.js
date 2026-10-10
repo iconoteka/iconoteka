@@ -1,0 +1,21 @@
+import { createElement, forwardRef } from "react";
+
+const p = {"thin":{"stroke":"M9.75 3.2L3.575 3.2L20.75 20.425L20.75 14.25L21.25 14.25L21.25 21.25L14.25 21.25L14.25 20.75L20.425 20.75L3.225 3.55L3.225 9.725L2.75 9.725L2.75 2.725L9.75 2.725L9.75 3.2Z"},"ultralight":{"stroke":"M9.75 2.725L9.75 3.65L4.25 3.575L20.375 19.75L20.3 14.25L21.25 14.25L21.25 21.25L14.25 21.25L14.25 20.3L19.75 20.375L3.6 4.225L3.675 9.725L2.75 9.725L2.75 2.725L9.75 2.725Z"},"light":{"stroke":"M9.75 2.75L9.75 4.15L4.9 3.975L20.025 19.1L19.85 14.275L21.25 14.275L21.25 21.275L14.25 21.275L14.25 19.875L19.1 20.05L3.975 4.925L4.15 9.75L2.75 9.75L2.75 2.75L9.75 2.75Z"},"regular":{"stroke":"M9.75 2.725L9.75 4.575L5.575 4.325L19.65 18.4L19.4 14.25L21.25 14.25L21.25 21.25L14.25 21.25L14.25 19.4L18.425 19.65L4.35 5.575L4.6 9.725L2.75 9.725L2.75 2.725L9.75 2.725Z"},"medium":{"stroke":"M9.75 2.725L9.75 5L6.45 4.775L19.2 17.575L18.975 14.25L21.25 14.25L21.25 21.25L14.25 21.25L14.25 18.975L17.575 19.2L4.8 6.425L5.025 9.725L2.75 9.725L2.75 2.725L9.75 2.725Z"},"semibold":{"stroke":"M9.45 2.725L7.15 5.05L18.925 16.85L21.25 14.55L21.25 21.25L14.55 21.25L16.85 18.925L5.075 7.125L2.75 9.425L2.75 2.725L9.45 2.725Z"},"bold":{"stroke":"M9.75 2.725L7.575 4.925L19.05 16.425L21.25 14.25L21.25 21.25L14.25 21.25L16.425 19.05L4.95 7.55L2.75 9.725L2.75 2.725L9.75 2.725Z"}};
+const f = null;
+
+const MaximizeDiagonalReverse = forwardRef(function MaximizeDiagonalReverse(
+  { weight = "regular", variant = "stroke", size = 24, ...rest }, ref
+) {
+  const w = p[weight] || p.regular;
+  const d = w[variant] || (variant === "fill" ? f : null) || w.stroke;
+  return createElement(
+    "svg",
+    { ref, width: size, height: size, viewBox: "0 0 24 24", fill: "none",
+      xmlns: "http://www.w3.org/2000/svg", ...rest },
+    createElement("path", { d, fill: "currentColor" })
+  );
+});
+
+MaximizeDiagonalReverse.displayName = "MaximizeDiagonalReverse";
+
+export default MaximizeDiagonalReverse;

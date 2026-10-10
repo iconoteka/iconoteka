@@ -1,6 +1,6 @@
 # iconoteka-react
 
-[Iconoteka](https://iconoteka.com) icons as React components — 1,300
+[Iconoteka](https://iconoteka.com) icons as React components — 1,400
 icons, seven weights, stroke and fill.
 
 ```bash

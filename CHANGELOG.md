@@ -2,6 +2,70 @@
 
 Library versions use the `02.00.08` form.
 
+## 02.01.00 · Wrappers 0.4.0 · MCP 0.2.3 — 10 Oct 2026
+
+- **100 new icons, taking the library to 1,400** and 16,123 shapes. The middle
+  number moves because the set grew. By category: Interface 63, Files & Data
+  11, Map 6, Arrows 5, Communications 5, People 3, Finance 2, Shapes 2, and one
+  each in House, Nature and Objects.
+  - Version control, as a family: `git_branch`, `git_commit`,
+    `git_commit_vertical`, `git_merge`, `git_fork`, `git_fork_right`,
+    `git_pull_request`, `git_compare`.
+  - Lists, as a family: `list_tree`, `list_lock`, `list_settings`,
+    `list_heart`, `list_music`, `list_search`, `list_user`, `list_video`, and
+    the six `list_type_*` forms alongside `list_type_numbered` and
+    `list_type_letters`.
+  - Progress and speed: seven `loader_*` steps from 13 to 88 per cent, and
+    four `speedometer_*` levels.
+  - Boolean operations and mirrors: `union`, `subtract`, `intersect`,
+    `exclude`, `base_shapes`, `flip_horizontal`, `flip_vertical`,
+    `mirror_vertical`, `mirror_horizontal`, `mirror_both`, `mirror_triangle`,
+    `mirror_six`, `mirror_eight`.
+  - Books and images, completing the add/remove/off sets: `books`,
+    `book_plus`, `book_minus`, `book_x`, `image_plus`, `image_minus`,
+    `image_off`, `doc_stack`, `scroll`, `quotation_marks`, `passport`.
+  - Messages and mail: `message_add`, `message_minus`, `message_check`,
+    `message_question`, `mail_x`, plus `user_check` and `user_x`.
+  - Tickets and places: `ticket_plus`, `ticket_minus`, `ticket_check`,
+    `apartment`, `shop`, `house_building`.
+  - And the singles: `mcp`, `handshake`, `sitemap`, `sparkles`, `grid_3x3`,
+    `bell_ring`, `broadcast`, `security_alert`, `lifebuoy`, `target`,
+    `cursor_arrow`, `cursor_click`, `container_code`, `container_cluster`,
+    `pen_line`, `eraser`, `knife`, `coins`, `calculator`, `fan`, `unpin`,
+    `spade`, `club`, `poop`, and the three `split_*` and two
+    `maximize_diagonal*` arrows.
+- **Two icons redrawn.** `opacity` ships as seven strokes and no fill at all,
+  where it used to carry a fill in every weight. `house` keeps one fill for all
+  seven weights instead of seven near-identical copies.
+- **100 keywords added across 64 existing icons**, none removed, so nothing
+  that resolved before stops resolving. `chevron_right` answers `chevron`,
+  `fold` answers `unfold_less`, `repeat` answers `recurring`, `calendar`
+  answers `weekday`, `message_alert` answers `complaint`, and so on. Filenames
+  equal frame names, so this renamed 743 SVGs — the CDN paths for those icons
+  change with it.
+- **`new` is published with the data, for the website to mark.** `meta.new`
+  lists the 100 identities, `meta.tags` labels the tag, and each of those icons
+  carries `tags: ["new"]`. It is computed by `npm run build` from the
+  `icons.json` it replaces, never typed into a frame name — a tag in a name
+  would rename 14 SVGs and have to come back out next release. It means "added
+  in this version", so it needs no clock and the published file says the same
+  thing forever; rebuilding 02.01.00 keeps the list, and the next version
+  recomputes it.
+- **`download_folder` and `upload_folder` get the keywords they already had in
+  Figma.** They shipped in 02.00.15 carrying only their own name, while their
+  Figma frames carried eight words each — `folder_download`,
+  `download_to_folder`, `export_folder`, `export`, `retrieve`, `get`, `pull`
+  and the matching `folder_upload`, `upload_to_folder`, `import_folder`,
+  `import`, `push`, `submit`, `dropzone`. Figma is the authority for a frame
+  name, so the repo follows it: 28 more SVGs renamed, and those two icons are
+  now searchable by all eight words. All 1,400 filenames now equal their frame
+  names exactly.
+- **`shop` is no longer an alias.** It resolved to `shopping_bag`; now it is an
+  icon's own name, and an identity always wins. 193 resolutions, down from 194.
+- Wrappers go to 0.4.0 with the 100 new components, and take their advertised
+  icon count from the data so a release cannot leave a stale number behind.
+  MCP goes to 0.2.3 and requires `iconoteka ^2.1.0`.
+
 ## MCP 0.2.2 — 15 Sep 2026
 
 - **Existing installs now get current icons.** `npx` upgrades iconoteka-mcp
